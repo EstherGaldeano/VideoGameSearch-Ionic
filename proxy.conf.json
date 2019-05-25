@@ -1,0 +1,12 @@
+{
+    "/games": {
+        "target": "http://api-v3.igdb.com",
+        "changeOrigin": true
+    },
+
+
+    "/games/*": {
+        "target": "http://api-v3.igdb.com",
+        "changeOrigin": true
+    }
+}

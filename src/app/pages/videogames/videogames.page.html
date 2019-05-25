@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Videogames</ion-title>
+  </ion-toolbar>
+</ion-header>
+ 
+<ion-content>
+ 
+  <ion-searchbar [(ngModel)]="searchTerm" (ionChange)="searchChanged($event)"></ion-searchbar>
+ 
+   <ion-list> 
+ 
+    <ion-item button *ngFor="let item of (results | async)"  [routerLink]="['/', 'videogames', item.id]"> 
+      
+      <ion-thumbnail slot="start">
+        <img [src]="item.cover.url" *ngIf="item.cover">
+        <ion-icon size="large" name="images"*ngIf="!item.cover" class= "iconoImagen"></ion-icon>
+      </ion-thumbnail>
+ 
+      <ion-label text-wrap>
+        <h3>{{ item.name }} </h3>  <ion-badge class="rate" *ngIf="item.aggregated_rating"> {{item.aggregated_rating.toFixed()}}</ion-badge>   
+      </ion-label>
+
+    </ion-item>
+ 
+  </ion-list>
+ 
+</ion-content>

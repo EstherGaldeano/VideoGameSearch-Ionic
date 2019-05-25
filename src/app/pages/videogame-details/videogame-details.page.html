@@ -1,0 +1,81 @@
+
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header> 
+<ion-content padding>
+ 
+  <ion-card *ngIf="details">
+    <ion-card-header>
+      <ion-card-title>
+        {{ details.name }}
+
+        <ion-badge class="rate"> 
+
+            {{details.aggregated_rating.toFixed()}}
+
+          </ion-badge>
+
+         <!-- <ion-avatar *ngFor="let platform of (details.platforms)">
+            <img [src]="platform.platform_logo.url" *ngIf="platform.platform_logo" class="logoPlataforma">
+          </ion-avatar> -->   
+  
+      </ion-card-title>
+
+      <ion-badge *ngFor="let genre of (details.genres)" class="genres"> 
+
+          {{genre.name}}
+
+        </ion-badge>
+
+      <ion-card-subtitle>
+        <!-- {{ information.Year }} -->
+      </ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content text-center>
+      
+      <img [src]="details.cover.url" *ngIf="details.cover" class="info-img">
+     
+      <h2 *ngIf="details.summary">Summary</h2>
+      <hr>
+      <p>{{details.summary}}</p>
+
+    
+  <ion-card-content class="platformListCard">
+  
+  <ion-badge *ngFor="let platform of (details.platforms)" class="platformList">
+      {{platform.name}}
+</ion-badge> 
+
+
+    </ion-card-content>
+
+  </ion-card-content>
+
+
+
+    <!-- <ion-list> 
+ 
+        <ion-item *ngFor="let platform of (details.platforms)">
+          
+          <ion-thumbnail slot="start">
+            <img [src]="platform.platform_logo.url" *ngIf="platform.platform_logo.url">
+          </ion-thumbnail>
+     
+          <ion-label text-wrap>
+            <h3>{{ platform.name }}</h3>    
+          </ion-label>
+    
+        </ion-item>
+     
+      </ion-list> -->
+
+
+
+  </ion-card>
+
+
+</ion-content>
